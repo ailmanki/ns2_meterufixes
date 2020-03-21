@@ -1,11 +1,27 @@
 name        = "Meteru Fixes"
 source_dir  = "source"
 output_dir  = "output"
-description = [=[Image is from https://www.nasa.gov/image-feature/astronauts-complete-2nd-phase-to-repair-alpha-magnetic-spectrometer
+description = [=[modid: 78F8B079
 
+Attempt to fix some bugs
 
 Bugfixes
-- Combat mod, shockwave client error]=]
+- stomp related
+ClientGame::UpdateWorld : Error: lua/Weapons/Alien/Shockwave.lua:58: attempt to index a nil value
+- minigun related
+ Script Error #12: lua/Weapons/Marine/Minigun.lua:283: attempt to call method 'GetViewAngles' (a nil value)
+- jetpack related
+Main : Error: lua/Player.lua:1375: attempt to call method 'ProcessMoveOnModel' (a nil value)
+- mac related
+ Main : Error: lua/MAC.lua:987: Attempt to access an object that no longer exists (was type SoundEffect)
+
+Github repository: https://github.com/ailmanki/ns2_meterufixes
+
+Preview image is from https://www.nasa.gov/image-feature/astronauts-complete-2nd-phase-to-repair-alpha-magnetic-spectrometer
+
+
+]=]
 image       = "preview.jpg"
 tag_modtype = "Gameplay Tweak"
 tag_support = "Must be run on Server"
+publish_id = "78f8b079"
