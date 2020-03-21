@@ -984,10 +984,12 @@ function MAC:OnUpdate(deltaTime)
         self.constructing = Shared.GetTime() - self.timeOfLastConstruct < 0.5
         self.welding = Shared.GetTime() - self.timeOfLastWeld < 0.5
 
-        if self.moving and not self.jetsSound:GetIsPlaying() then
-            self.jetsSound:Start()
-        elseif not self.moving and self.jetsSound:GetIsPlaying() then
-            self.jetsSound:Stop()
+        if self.jetsSound then
+            if self.moving and not self.jetsSound:GetIsPlaying() then
+                self.jetsSound:Start()
+            elseif not self.moving and self.jetsSound:GetIsPlaying() then
+                self.jetsSound:Stop()
+            end
         end
         
     -- client side build / weld effects
