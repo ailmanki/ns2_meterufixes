@@ -54,8 +54,9 @@ local function CreateEffect(self)
 	
 	local player = Client.GetLocalPlayer()
 	local enemies = GetAreEnemies(self, player)
+	local parent = self:GetParent()
 	--Not ideal, but parent sighted will be more up-to-date in most cases
-	local showEffect = ( player and not enemies ) or ( enemies and self:GetParent():GetIsSighted() )
+    local showEffect = ( player and not enemies ) or ( enemies and parent and parent:GetIsSighted() )
 	
 	if not showEffect then
 		return true
