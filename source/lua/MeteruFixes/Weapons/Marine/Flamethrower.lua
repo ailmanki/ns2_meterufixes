@@ -281,8 +281,9 @@ function Flamethrower:ApplyConeDamage(player)
             else
                 fireDirection = fireDirection * 0.55 + normal
                 fireDirection:Normalize()
-
-                self:CreateFlame(player, endPoint, normal, fireDirection)
+                if fireDirection ~= normal then
+                    self:CreateFlame(player, endPoint, normal, fireDirection)
+                end
             end
 
         end
