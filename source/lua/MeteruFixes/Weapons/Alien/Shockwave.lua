@@ -32,22 +32,22 @@ local kUpdateRate = 0.1
 local kShockWaveVelocity = 24
 
 local function CreateCoords(xAxis, yAxis, zAxis)
-	
-	local coords = Coords()
-	coords.xAxis = xAxis
-	coords.yAxis = yAxis
-	coords.zAxis = zAxis
-	
-	return coords
+
+    local coords = Coords()
+    coords.xAxis = xAxis
+    coords.yAxis = yAxis
+    coords.zAxis = zAxis
+    
+    return coords
 
 end
 
 local kRotationCoords =
 {
-	CreateCoords(Vector.xAxis, Vector.yAxis, Vector.zAxis),
-	CreateCoords(-Vector.xAxis, Vector.yAxis, -Vector.zAxis),
-	CreateCoords(-Vector.xAxis, -Vector.yAxis, Vector.zAxis),
-	CreateCoords(Vector.xAxis, -Vector.yAxis, -Vector.zAxis),
+    CreateCoords(Vector.xAxis, Vector.yAxis, Vector.zAxis),
+    CreateCoords(-Vector.xAxis, Vector.yAxis, -Vector.zAxis),
+    CreateCoords(-Vector.xAxis, -Vector.yAxis, Vector.zAxis),
+    CreateCoords(Vector.xAxis, -Vector.yAxis, -Vector.zAxis),
 }
 
 local function CreateEffect(self)
