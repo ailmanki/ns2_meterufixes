@@ -1,0 +1,170 @@
+[08:27:48]Hook error: lua/LocalTalkExtended/Server.lua:26: attempt to index local 'speaker_client' (a nil value)
+Stack traceback:
+    lua/LocalTalkExtended/Server.lua:26 in function <lua/LocalTalkExtended/Server.lua:15>
+        _ = true
+        basecommands = table: 0x76363f38 (0 array elements, not empty)
+        channel = 1
+        gamerules = NS2Gamerules-3884
+        listener = AlienSpectator-747
+        listener_client = ServerClient
+        speaker = Skulk-1848
+        speaker_client = nil
+    [C]:-1 in function 'xpcall'
+    lua/shine/core/shared/hook.lua:164 in function 'Call'
+        (for control) = table: 0x618a35d0 (0 array elements, not empty)
+        (for generator) = function: 0x78ea06d8 (lua/shine/lib/objects/linked_list.lua:142)
+        (for state) = table: 0x618a2c10 (0 array elements, not empty)
+        Callbacks = table: 0x618a2c10 (0 array elements, not empty)
+        Entry = table: 0x618a34e0 (0 array elements, not empty)
+        Event = "CanPlayerHearPlayer"
+        Node = table: 0x618a35d0 (0 array elements, not empty)
+        select( "#", ... ) = 4
+        select( 1, ... ) = NS2Gamerules-3884
+        select( 2, ... ) = AlienSpectator-747
+        select( 3, ... ) = Skulk-1848
+        select( 4, ... ) = 1
+    lua/shine/core/shared/hook.lua:333 in function 'GetCanPlayerHearPlayer'
+        OldFunc = function: 0x79246ff8 (lua/NS2Gamerules.lua:1894)
+        select( "#", ... ) = 4
+        select( 1, ... ) = NS2Gamerules-3884
+        select( 2, ... ) = AlienSpectator-747
+        select( 3, ... ) = Skulk-1848
+        select( 4, ... ) = 1
+    [string "Closure"]:1 in function 'functor'
+        commandersOnly = false
+        excludePlayer = Skulk-1848
+        ignoreDistance = false
+        origin = Vector( -49.0625, -51.328125, 18.6796875 )
+        player = AlienSpectator-747
+        self = table: 0x62ba5fc8 (6 array elements, not empty)
+        soundName = "sound/NS2.fev/alien/voiceovers/lifeform_under_attack"
+        triggeringPlayer = Skulk-1848
+    lua/Team.lua:453 in function 'ForEachPlayer'
+        (for index) = 9
+        (for limit) = 1
+        (for step) = -1
+        functor = table: 0x62ba5fc8 (6 array elements, not empty)
+        i = 9
+        player = AlienSpectator-747
+        playerId = 747
+        playerIds = table: 0x73f72b98 (9 array elements, not empty)
+        self = AlienTeam
+    lua/Team.lua:242 in function 'PlayPrivateTeamSound'
+        commandersOnly = false
+        excludePlayer = Skulk-1848
+        ignoreDistance = false
+        origin = Vector( -49.0625, -51.328125, 18.6796875 )
+        PlayPrivateSound = table: 0x62ba5fc8 (6 array elements, not empty)
+        self = AlienTeam
+        soundName = "sound/NS2.fev/alien/voiceovers/lifeform_under_attack"
+        triggeringPlayer = Skulk-1848
+    lua/PlayingTeam.lua:458 in function 'TriggerAlert'
+        commandersOnly = false
+        entity = Skulk-1848
+        force = nil
+        ignoreDistance = false
+        ignoreInterval = false
+        ignoreSourcePlayer = Skulk-1848
+        isRepeat = false
+        location = Vector( -49.0625, -51.328125, 18.6796875 )
+        newAlertPriority = 0
+        self = AlienTeam
+        soundName = "sound/NS2.fev/alien/voiceovers/lifeform_under_attack"
+        techId = 399
+        timeElapsed = 15.112548828125
+        triggeredAlert = false
+    lua/CombatMixin.lua:210 in function 'b'
+        alert = 399
+        attacker = JetpackMarine-3839
+        damage = 8
+        damageType = 13
+        direction = Vector( -0.95661735534668, 0.13755981624126, 0.25682783126831 )
+        doer = Flame-1882
+        isHallucination = nil
+        notifiyTarget = true
+        point = Vector( -48.859031677246, -50.825408935547, 18.519771575928 )
+        preventAlert = nil
+        self = Skulk-1848
+        team = AlienTeam
+    [string "..."]:5 in function 'a'
+        arg1 = Skulk-1848
+        arg2 = 8
+        arg3 = JetpackMarine-3839
+        arg4 = Flame-1882
+        arg5 = Vector( -48.859031677246, -50.825408935547, 18.519771575928 )
+        arg6 = Vector( -0.95661735534668, 0.13755981624126, 0.25682783126831 )
+        arg7 = 13
+        arg8 = nil
+        ret = nil
+    [string "..."]:4 in function 'OnTakeDamage'
+        arg1 = Skulk-1848
+        arg2 = 8
+        arg3 = JetpackMarine-3839
+        arg4 = Flame-1882
+        arg5 = Vector( -48.859031677246, -50.825408935547, 18.519771575928 )
+        arg6 = Vector( -0.95661735534668, 0.13755981624126, 0.25682783126831 )
+        arg7 = 13
+        arg8 = nil
+    lua/LiveMixin.lua:350 in function 'oldTakeDamage'
+        armorUsed = 0
+        attacker = JetpackMarine-3839
+        damage = 8
+        damageType = 13
+        direction = Vector( -0.95661735534668, 0.13755981624126, 0.25682783126831 )
+        doer = Flame-1882
+        healthUsed = 8
+        killedFromDamage = false
+        oldArmor = 0
+        oldHealth = 0
+        point = Vector( -48.859031677246, -50.825408935547, 18.519771575928 )
+        preventAlert = nil
+        self = Skulk-1848
+    lua/NS2Plus/Server/CHUD_ServerStats.lua:630 in function 'TakeDamage'
+        armorUsed = 0
+        attacker = JetpackMarine-3839
+        biomassLevel = nil
+        className = "Skulk"
+        damage = 8
+        damageType = 13
+        direction = Vector( -0.95661735534668, 0.13755981624126, 0.25682783126831 )
+        doer = Flame-1882
+        healthUsed = 8
+        point = Vector( -48.859031677246, -50.825408935547, 18.519771575928 )
+        preventAlert = nil
+        self = Skulk-1848
+    lua/DamageMixin.lua:101 in function 'DoDamage'
+        altMode = nil
+        armorUsed = 0
+        attacker = JetpackMarine-3839
+        currentComm = nil
+        damage = 8
+        damageDone = 0
+        damageType = 13
+        direction = Vector( -0.95661735534668, 0.13755981624126, 0.25682783126831 )
+        doer = Flame-1882
+        healthUsed = 8
+        killedFromDamage = false
+        point = Vector( -48.859031677246, -50.825408935547, 18.519771575928 )
+        self = Flame-1882
+        showtracer = nil
+        surface = nil
+        target = Skulk-1848
+        weapon = 1
+    lua/Weapons/Marine/Flame.lua:142 in function 'Detonate'
+        (for index) = 6
+        (for limit) = 9
+        (for step) = 1
+        abs = function: builtin#39 ([C]:-1)
+        ent = Skulk-1848
+        entOrigin = Vector( -48.859031677246, -50.825408935547, 18.519771575928 )
+        ents = table: 0x6194a7c8 (9 array elements, not empty)
+        gamerules = NS2Gamerules-3884
+        i = 6
+        origin = Vector( -47.935348510742, -50.958232879639, 18.271785736084 )
+        player = JetpackMarine-3839
+        self = Flame-1882
+        targetHit = nil
+        toEnemy = Vector( -0.95661735534668, 0.13755981624126, 0.25682783126831 )
+    lua/Weapons/Marine/Flame.lua:48 in function <lua/Weapons/Marine/Flame.lua:44>
+        self = Flame-1882
+[08:27:48][Hook Error] CanPlayerHearPlayer hook 'LocalTalkExtended' failed, removing.

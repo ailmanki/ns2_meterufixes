@@ -1,0 +1,11 @@
+name        = "Meteru Fixes"
+source_dir  = "source"
+output_dir  = "output"
+description = [=[Image is from https://www.nasa.gov/image-feature/astronauts-complete-2nd-phase-to-repair-alpha-magnetic-spectrometer
+
+
+Bugfixes
+- Combat mod, shockwave client error]=]
+image       = "preview.jpg"
+tag_modtype = "Gameplay Tweak"
+tag_support = "Must be run on Server"

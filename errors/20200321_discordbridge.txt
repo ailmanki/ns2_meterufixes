@@ -1,0 +1,44 @@
+Client disconnected (81.111.12.155:49300) Quit
+[18:59:45]Hook error: lua/shine/extensions/discordbridge.lua:178: attempt to index local 'player' (a nil value)
+Stack traceback:
+    lua/shine/extensions/discordbridge.lua:178 in function <lua/shine/extensions/discordbridge.lua:173>
+        client = ServerClient
+        maxPlayers = 50
+        numPlayers = 34
+        player = nil
+        self = table: 0x60f98290 (0 array elements, not empty)
+    [C]:-1 in function 'xpcall'
+    lua/shine/core/shared/extensions.lua:617 in function 'CallEvent'
+        Event = "ClientDisconnect"
+        Method = function: 0x60f96ac0 (lua/shine/extensions/discordbridge.lua:173)
+        OnError = function: 0x7fe4ee20 (lua/shine/lib/debug.lua:490)
+        Plugin = table: 0x60f98290 (0 array elements, not empty)
+        select( "#", ... ) = 1
+        select( 1, ... ) = ServerClient
+        self = table: 0x7d693180 (0 array elements, not empty)
+    lua/shine/lib/objects/event_dispatcher.lua:98 in function <lua/shine/lib/objects/event_dispatcher.lua:95>
+        (for index) = 2
+        (for limit) = 5
+        (for step) = 1
+        Event = "ClientDisconnect"
+        i = 2
+        Listeners = table: 0x7a934508 (5 array elements, not empty)
+        select( "#", ... ) = 3
+        select( 1, ... ) = function: 0x7fe4ee20 (lua/shine/lib/debug.lua:490)
+        select( 2, ... ) = "ClientDisconnect"
+        select( 3, ... ) = ServerClient
+        self = table: 0x7d693180 (0 array elements, not empty)
+    [C]:-1 in function 'xpcall'
+    lua/shine/core/shared/hook.lua:193 in function 'Broadcast'
+        (for control) = table: 0x74372048 (0 array elements, not empty)
+        (for generator) = function: 0x624a43b0 (lua/shine/lib/objects/linked_list.lua:142)
+        (for state) = table: 0x74371ee8 (0 array elements, not empty)
+        Callbacks = table: 0x74371ee8 (0 array elements, not empty)
+        Entry = table: 0x74371f48 (0 array elements, not empty)
+        Event = "ClientDisconnect"
+        Node = table: 0x74372048 (0 array elements, not empty)
+        select( "#", ... ) = 1
+        select( 1, ... ) = ServerClient
+    lua/shine/core/shared/hook.lua:738 in function <lua/shine/core/shared/hook.lua:737>
+        Client = ServerClient
+[18:59:45][Hook Error] ClientDisconnect hook failed from plugin 'discordbridge'. Error count: 3.
