@@ -1,5 +1,0 @@
-
-[205017.915] Main : Error: Failed to add an obstacle at 2.01, -102.10, -89.62!
-[205017.916] Main : Error: Failed to add an obstacle at 5.96, -102.30, -85.15!
-[205017.917] Main : Error: Failed to add an obstacle at 46.62, -103.48, -26.94!
-[205017.920] Main : Error: Failed to add an obstacle at 39.69, -99.67, -34.09!
