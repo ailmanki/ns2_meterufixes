@@ -1371,7 +1371,7 @@ local function UpdateAnimationInputs(self, input)
     self:ProcessMoveOnWeapons(input)
     
     local viewModel = self:GetViewModelEntity()
-    if viewModel then
+    if viewModel and viewModel.ProcessMoveOnModel then
         viewModel:ProcessMoveOnModel(input.time)
     end
     
