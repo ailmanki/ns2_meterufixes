@@ -275,59 +275,61 @@ local function Shoot(self, leftSide)
     -- We can get a shoot tag even when the clip is empty if the frame rate is low
     -- and the animation loops before we have time to change the state.
     if self.minigunAttacking and player then
-    
-        if Server and not self.spinSound:GetIsPlaying() then
-            self.spinSound:Start()
-        end    
-    
-        local viewAngles = player:GetViewAngles()
-        local shootCoords = viewAngles:GetCoords()
         
-        -- Filter ourself out of the trace so that we don't hit ourselves.
-        local filter = EntityFilterTwo(player, self)
-        local startPoint = player:GetEyePos()
-        
-        local spreadDirection = CalculateSpread(shootCoords, kMinigunSpread, NetworkRandom)
-        
-        local range = kMinigunRange
-        
-        local endPoint = startPoint + spreadDirection * range
-        
-        local targets, trace, hitPoints = GetBulletTargets(startPoint, endPoint, spreadDirection, kBulletSize, filter) 
-        
-        local direction = (trace.endPoint - startPoint):GetUnit()
-        local hitOffset = direction * kHitEffectOffset
-        local impactPoint = trace.endPoint - hitOffset
-        local surfaceName = trace.surface
-        local effectFrequency = self:GetTracerEffectFrequency()
-        local showTracer = (math.random() < effectFrequency)
-        
-        local numTargets = #targets
-        
-        if numTargets == 0 then
-            self:ApplyBulletGameplayEffects(player, nil, impactPoint, direction, 0, trace.surface, showTracer)
-        end
-        
-        if Client and showTracer then
-            TriggerFirstPersonTracer(self, trace.endPoint)
-        end
-        
-        for i = 1, numTargets do
-
-            local target = targets[i]
-            local hitPoint = hitPoints[i]
-
-            self:ApplyBulletGameplayEffects(player, target, hitPoint - hitOffset, direction, kMinigunDamage, "", showTracer and i == numTargets)
+        if player.GetViewAngles then
             
-            local client = Server and player:GetClient() or Client
-            if not Shared.GetIsRunningPrediction() and client.hitRegEnabled then
-                RegisterHitEvent(player, bullet, startPoint, trace, damage)
+            if Server and not self.spinSound:GetIsPlaying() then
+                self.spinSound:Start()
             end
-        
+            
+            local viewAngles = player:GetViewAngles()
+            local shootCoords = viewAngles:GetCoords()
+            
+            -- Filter ourself out of the trace so that we don't hit ourselves.
+            local filter = EntityFilterTwo(player, self)
+            local startPoint = player:GetEyePos()
+            
+            local spreadDirection = CalculateSpread(shootCoords, kMinigunSpread, NetworkRandom)
+            
+            local range = kMinigunRange
+            
+            local endPoint = startPoint + spreadDirection * range
+            
+            local targets, trace, hitPoints = GetBulletTargets(startPoint, endPoint, spreadDirection, kBulletSize, filter)
+            
+            local direction = (trace.endPoint - startPoint):GetUnit()
+            local hitOffset = direction * kHitEffectOffset
+            local impactPoint = trace.endPoint - hitOffset
+            local surfaceName = trace.surface
+            local effectFrequency = self:GetTracerEffectFrequency()
+            local showTracer = (math.random() < effectFrequency)
+            
+            local numTargets = #targets
+            
+            if numTargets == 0 then
+                self:ApplyBulletGameplayEffects(player, nil, impactPoint, direction, 0, trace.surface, showTracer)
+            end
+            
+            if Client and showTracer then
+                TriggerFirstPersonTracer(self, trace.endPoint)
+            end
+            
+            for i = 1, numTargets do
+    
+                local target = targets[i]
+                local hitPoint = hitPoints[i]
+    
+                self:ApplyBulletGameplayEffects(player, target, hitPoint - hitOffset, direction, kMinigunDamage, "", showTracer and i == numTargets)
+                
+                local client = Server and player:GetClient() or Client
+                if not Shared.GetIsRunningPrediction() and client.hitRegEnabled then
+                    RegisterHitEvent(player, bullet, startPoint, trace, damage)
+                end
+            
+            end
+            
+            self.shooting = true
         end
-        
-        self.shooting = true
-        
     end
     
 end
