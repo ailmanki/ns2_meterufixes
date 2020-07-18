@@ -215,6 +215,11 @@ function Flamethrower:CreateFlame(player, position, normal, direction)
         flame:SetOwner(player)
         
         local coords = Coords.GetTranslation(position)
+        
+        if math.abs(Math.DotProduct(normal, direction)) > 0.9999 then
+            direction = normal:GetPerpendicular()
+        end
+        
         coords.yAxis = normal
         coords.zAxis = direction
         
@@ -281,9 +286,8 @@ function Flamethrower:ApplyConeDamage(player)
             else
                 fireDirection = fireDirection * 0.55 + normal
                 fireDirection:Normalize()
-                if fireDirection ~= normal then
-                    self:CreateFlame(player, endPoint, normal, fireDirection)
-                end
+                
+                self:CreateFlame(player, endPoint, normal, fireDirection)
             end
 
         end
